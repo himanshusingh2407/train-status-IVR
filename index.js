@@ -1,12 +1,14 @@
-var http = require('http');
+var express = require('express');
 var xml = require('xml');
 var port = process.env.PORT || 5000
+var app = express();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/xml'});
-    res.end(xml({response: [{
-      playtext: 'Hey i am Himanshu testing this api'
-    }]}));
-}).listen(port);
-
-console.log(port);
+app.get('/', function(req, res){
+  console.log(req.query);
+  res.header('Content-Type', 'text/xml');
+  res.send(xml({response: [{
+    playtext: 'Hey welcome to our app. Just enter the 6 digit train number to know its running status.'
+  }]}));
+});
+console.log('The app is running at PORT : ' + port);
+app.listen(port);
