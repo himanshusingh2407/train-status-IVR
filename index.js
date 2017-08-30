@@ -8,7 +8,7 @@ app.get('/', function(req, res){
   res.header('Content-Type', 'text/xml');
   res.send(xml({response: [{
 	collectdtmf: [ { _attr: { l: "5", t: "#"} }, 
-	{ playtext: 'Hey welcome to our app. Just enter the 6 digit train number to know its running status.'
+	{ playtext: 'Enter the 5 digit train number followed by Hash.'
 	}
 ]}]}));
 });
