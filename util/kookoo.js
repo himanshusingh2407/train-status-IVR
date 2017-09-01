@@ -93,7 +93,7 @@ module.exports = {
 								playtext: 'You have entered ' + data + 'Please wait while we fetch the train running status'
 							},
 							{
-								playtext: train.getTrainStatus(trainNumber, 1)
+								playtext: bkabkbkbkbkbkbkbk Suvam Pramanik Himanshu Singh//train.getTrainStatus(trainNumber, 1)
 							}
 						]}));
 					}
