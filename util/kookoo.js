@@ -79,7 +79,7 @@ module.exports = {
 					},
 					{
 						collectdtmf: [ {
-							_attr: { l: "5", t: "#"}
+							_attr: { t: "#"}
 						},
 						{
 							playtext: 'Please enter the 5 digit train number followed by #'
