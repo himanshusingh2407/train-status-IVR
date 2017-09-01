@@ -67,6 +67,7 @@ function reenterResponse(req) {
 
 }*/
 module.exports = {
+	//train.getTrainStatus(trainNumber, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
 		var data = req.query.data;
@@ -93,7 +94,7 @@ module.exports = {
 								playtext: 'You have entered ' + data + 'Please wait while we fetch the train running status'
 							},
 							{
-								playtext: bkabkbkbkbkbkbkbk Suvam Pramanik Himanshu Singh//train.getTrainStatus(trainNumber, 1)
+								playtext: 'bkabkbkbkbkbkbkbk Suvam Pramanik Himanshu Singh'
 							}
 						]}));
 					}
