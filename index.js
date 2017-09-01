@@ -114,7 +114,7 @@ app.get('/', function(req, res){
   else {
 	res.send(xml({response: [
 		{
-			playtext: 'You have entered ' + data
+			hangup: ''
 		}
 	]}));
   }
