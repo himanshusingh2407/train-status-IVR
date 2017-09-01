@@ -92,9 +92,6 @@ module.exports = {
 						var trainStatus = train.getTrainStatus(trainNumber, 1);
 						return (xml({response: [
 							{
-								playtext: 'You have entered ' + data + 'Please wait while we fetch the train running status'
-							},
-							{
 								playtext: 'Please wait while we fetch the train running status'
 							},
 							{
