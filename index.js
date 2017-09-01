@@ -83,7 +83,7 @@ app.get('/', function(req, res){
 				_attr: { l: "5", t: "#"} 
 				},
 				{
-					playtext: 'Welcome to Shaktiman.'
+					playtext: 'Enter the 5 digit train number followed by #'
 				}
 		]}]}));
 	}
