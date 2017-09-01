@@ -107,7 +107,7 @@ module.exports = {
 							return (xml({response: [
 								{
 									collectdtmf: [ {
-										_attr: { l: "5", t: "#"}
+										_attr: { t: "#"}
 									},
 									{
 										playtext: 'Please enter the correct 5 digit train number followed by #.'
@@ -122,7 +122,7 @@ module.exports = {
 								},
 								{
 									collectdtmf: [ {
-										_attr: { l: "5", t: "#"}
+										_attr: { t: "#"}
 									},
 									{
 										playtext: 'Please enter the 5 digit train number followed by #.'
