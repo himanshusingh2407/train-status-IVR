@@ -11,7 +11,7 @@ app.get('/', function(req, res){
   res.header('Content-Type', 'text/xml');
 
   res.send(xml({response: [{
-    playtext: trainApi.getTrainStatus(15274, 1)
+    playtext: 'test message'
   }]}));
 });
 console.log('The app is running at PORT : ' + port);
