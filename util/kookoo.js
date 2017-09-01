@@ -89,12 +89,13 @@ module.exports = {
 				else if(event == 'GotDTMF'){
 					if(data){
 						var trainNumber = parseInt(data);
+						var trainStatus = train.getTrainStatus(trainNumber, 1);
 						return (xml({response: [
 							{
 								playtext: 'You have entered ' + data + 'Please wait while we fetch the train running status'
 							},
 							{
-								playtext: 'bkabkbkbkbkbkbkbk Suvam Pramanik Himanshu Singh'
+								playtext: 'The current station is DELHI  and delay is 0 minutes'
 							}
 						]}));
 					}
