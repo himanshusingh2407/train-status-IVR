@@ -9,7 +9,7 @@ function getTrainID(trainNumber) {
 module.exports = {
   getTrainStatus: function(trainNumber, day) {
     var trainID = getTrainID(trainNumber);
-    console.log(date.getDate(0));
+    //console.log(date.getDate(0));
     var response = api.callApi("/getRunningStatus/trainno/" + trainID + "/date/" + date.getDate(day));
 
     let currentStation = response.markers.filter(station => station.status === 'current')[0].title;
