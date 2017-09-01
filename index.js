@@ -83,7 +83,7 @@ app.get('/', function(req, res){
 				_attr: { l: "5", t: "#"} 
 				},
 				{
-					playtext: 'Welcome to Shaktiman. To know current running train status, please enter the 5 digit train number followed by #.'
+					playtext: 'Welcome to Shaktiman.'
 				}
 		]}]}));
 	}
