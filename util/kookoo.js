@@ -90,7 +90,7 @@ module.exports = {
 					if(data){
 						if (data.length == 5){
 							var trainNumber = parseInt(data);
-							var trainStatus = train.getTrainStatus(trainNumber, 0);
+							var trainStatus = train.getTrainStatus(trainNumber, 1);
 							return (xml({response: [
 								{
 									playtext: 'You have entered ' + data
