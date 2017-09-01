@@ -24,6 +24,7 @@ module.exports = {
     } else if (day == 2) {
       d = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     }
+    console.log(d);
     return (d.getDate() + ' ' + m_names[d.getMonth()]);
   }
 };
