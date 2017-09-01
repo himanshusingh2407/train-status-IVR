@@ -95,7 +95,10 @@ module.exports = {
 								playtext: 'You have entered ' + data + 'Please wait while we fetch the train running status'
 							},
 							{
-								playtext: 'The current station is DELHI  and delay is 0 minutes'
+								playtext: 'Please wait while we fetch the train running status'
+							},
+							{
+								playtext: trainStatus
 							}
 						]}));
 					}
