@@ -79,11 +79,14 @@ app.get('/', function(req, res){
 	if (event == 'NewCall') {
 	res.send(xml({response: [
 		{
+			playtext: 'Welcome to Shaktiman.'
+		},
+		{
 			collectdtmf: [ {
 				_attr: { l: "5", t: "#"} 
 				},
 				{
-					playtext: 'Enter the 5 digit train number followed by #'
+					playtext: 'Please enter the 5 digit train number followed by #'
 				}
 		]}]}));
 	}
