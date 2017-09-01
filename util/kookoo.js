@@ -88,39 +88,55 @@ module.exports = {
 				}
 				else if(event == 'GotDTMF'){
 					if(data){
-						var trainNumber = parseInt(data);
-						var trainStatus = train.getTrainStatus(trainNumber, 1);
-						return (xml({response: [
-							{
-								playtext: 'Please wait while we fetch the train running status'
-							},
-							{
-								playtext: trainStatus
+						if (data.length == 5){
+							var trainNumber = parseInt(data);
+							var trainStatus = train.getTrainStatus(trainNumber, 1);
+							return (xml({response: [
+								{
+									playtext: 'You have entered ' + data
+								},
+								{
+									playtext: 'Please wait while we fetch the train running status'
+								},
+								{
+									playtext: trainStatus
+								}
+							]}));
+						}
+						else{
+							return (xml({response: [
+								{
+									collectdtmf: [ {
+										_attr: { l: "5", t: "#"}
+									},
+									{
+										playtext: 'Please enter the correct 5 digit train number followed by #.'
+									}
+								]}]}));
 							}
-						]}));
+						}
+						else {
+							return (xml({response: [
+								{
+									playtext: 'You have not entered anything'
+								},
+								{
+									collectdtmf: [ {
+										_attr: { l: "5", t: "#"}
+									},
+									{
+										playtext: 'Please enter the 5 digit train number followed by #.'
+									}
+								]}]}));
+							}
+						}
 					}
 					else {
 						return (xml({response: [
 							{
-								playtext: 'You have not entered anything'
-							},
-							{
-								collectdtmf: [ {
-									_attr: { l: "5", t: "#"}
-								},
-								{
-									playtext: 'Please enter the 5 digit train number followed by #.'
-								}
-							]}]}));
-						}
+								hangup: ''
+							}
+						]}));
 					}
 				}
-				else {
-					return (xml({response: [
-						{
-							hangup: ''
-						}
-					]}));
-				}
-			}
-		};
+			};
