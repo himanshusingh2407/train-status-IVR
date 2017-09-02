@@ -24,7 +24,7 @@ module.exports = {
 				}
 				else if(event == 'GotDTMF'){
 					if(data){
-            var trainNumer = req.query.sid.split('$').[1];
+            var trainNumer = req.query.sid.split('$')[1];
             if (trainNumer) {
               var trainDay = parseInt(data);
 							var trainStatus = train.getTrainStatus(trainNumber, trainDay);
