@@ -41,9 +41,9 @@ module.exports = {
       if(delay <= 0){
         msg = 'Train Number '  + trainNo + '    ' +  trainName + '        The current station is ' + stationDisplayed + ' and the train is right on time.';
       } else if(delay < 60) {
-        msg = 'Train Number '  + trainNo + '    ' +  trainName + '        The current station is ' + stationDisplayed + ' and the train is delayed by ' + delay + ' minutes';
+        msg = 'Train Number '  + trainNo + '    ' +  trainName + '        The current station is ' + stationDisplayed + ' and the train is late by ' + delay + ' minutes';
       } else {
-        msg = 'Train Number '  + trainNo + '    ' +  trainName + '        The current station is ' + stationDisplayed + ' and the train is delayed by ' + parseInt(delay/60) + ' hours and ' + delay%60 + ' minutes';
+        msg = 'Train Number '  + trainNo + '    ' +  trainName + '        The current station is ' + stationDisplayed + ' and the train is late by ' + parseInt(delay/60) + ' hours and ' + delay%60 + ' minutes';
       }
       if(alertMessage)
         msg += alertMessage;
