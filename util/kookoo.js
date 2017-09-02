@@ -99,7 +99,8 @@ module.exports = {
 									'say-as': [ {
 										_attr:
 										{
-											format: '501'
+											format: '501',
+											lang: 'EN'
 										}
 									}, data
 								] },
