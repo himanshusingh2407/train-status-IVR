@@ -46,7 +46,7 @@ module.exports = {
         msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station and is late by ' + parseInt(delay/60) + ' hours and ' + delay%60 + ' minutes';
       }
       if(alertMessage)
-        msg += alertMessage;
+        msg = alertMessage;
     }
     else {
       msg = 'Sorry, no train found by this train number. Please try again.';
