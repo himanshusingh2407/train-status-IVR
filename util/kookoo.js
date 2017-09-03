@@ -36,8 +36,8 @@ module.exports = {
 					if (trainNumber) {
 						var trainDay = parseInt(data);
 						//var trainStatus = train.getTrainStatus(trainNumber, trainDay);
-						if(trainDay) {
-							if(trainDay == 0 || trainDay == 1 || trainDay == 2) {
+						if(trainDay || trainDay == 0) {
+							if(trainDay == 1 || trainDay == 2 || trainDay == 3) {
 								var day = ['Yesterday', 'Today', 'Tomorrow'];
 								res = {
 									response:
@@ -54,7 +54,7 @@ module.exports = {
 										}, trainNumber
 									] },
 									{
-										playtext: 'Please wait while we fetch ' + day[trainDay]+ '\s train running status'
+										playtext: 'Please wait while we fetch ' + day[trainDay-1]+ '\s train running status'
 									},
 									{
 										playtext: train.getTrainStatus(trainNumber, trainDay)
@@ -75,8 +75,9 @@ module.exports = {
 										},
 										{
 											playtext: 'Please select the date of journey followed by #'
-										}, {
-											playtext: '0 for yesterday, 1 for today. 2 for tomorrow'
+										},
+										{
+											playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
 										}]
 									}]
 								};

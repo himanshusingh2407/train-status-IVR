@@ -16,12 +16,12 @@ module.exports = {
     ];
     // day = 1 for today (default)
     var d = new Date();
-    
+
     // day = 0 for yesterday
-    if (day == 0) {
+    if (day == 1) {
       d = new Date(new Date().getTime() - 24 * 60 * 60 * 1000// day = 2 for tomorrow
       );
-    } else if (day == 2) {
+    } else if (day == 3) {
       d = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     }
     console.log(d.getDate() + ' ' + m_names[d.getMonth()]);
