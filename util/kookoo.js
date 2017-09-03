@@ -17,7 +17,7 @@ module.exports = {
 				res = {
 					response:
 					[{
-						playtext: 'Welcome to Shaktiman.'
+						playtext: 'Welcome to Rail Jaankaaree.'
 					},
 					{
 						collectdtmf: [ {
@@ -41,22 +41,7 @@ module.exports = {
 								var day = ['Yesterday', 'Today', 'Tomorrow'];
 								res = {
 									response:
-									[/*{
-										playtext: 'You have entered'
-									},
-									{
-										'say-as': [ {
-											_attr:
-											{
-												format: '501',
-												lang: 'EN'
-											}
-										}, trainNumber
-									]},
-									{
-										playtext: 'Please wait while we fetch ' + day[trainDay-1]+ '\s train running status'
-									},*/
-									{
+									[{
 										playtext: train.getTrainStatus(trainNumber, trainDay)
 									}]
 								};
