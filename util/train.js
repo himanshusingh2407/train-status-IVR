@@ -11,9 +11,7 @@ module.exports = {
   },
   getTrainStatus: function(trainID, day) {
     var msg;
-    // var trainID = getTrainID(trainNumber);
     if(trainID) {
-      //console.log(date.getDate(0));
       var response = api.callApi("/getRunningStatus/trainno/" + trainID + "/date/" + date.getDate(day));
       if (response.errorMsg) {
         return response.errorMsg;

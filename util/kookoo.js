@@ -6,7 +6,6 @@ function getXMLResponse(response) {
 }
 
 module.exports = {
-	//train.getTrainStatus(trainId, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
 		var data = req.query.data || '';
@@ -35,7 +34,6 @@ module.exports = {
 					console.log('SID:: ', req.query.sid);
 					if (trainId) {
 						var trainDay = parseInt(data);
-						//var trainStatus = train.getTrainStatus(trainId, trainDay);
 						if(trainDay || trainDay == 0) {
 							if(trainDay == 1 || trainDay == 2 || trainDay == 3) {
 								var day = ['Yesterday', 'Today', 'Tomorrow'];
@@ -89,7 +87,6 @@ module.exports = {
 							};
 						}
 					} else if (data.length == 5){
-						// var trainId = parseInt(data);
 						var trainId = train.getTrainID(data);
 						if(trainId) {
 							res = {
