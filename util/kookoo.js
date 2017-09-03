@@ -41,7 +41,7 @@ module.exports = {
 								var day = ['Yesterday', 'Today', 'Tomorrow'];
 								res = {
 									response:
-									[{
+									[/*{
 										playtext: 'You have entered'
 									},
 									{
@@ -52,10 +52,10 @@ module.exports = {
 												lang: 'EN'
 											}
 										}, trainNumber
-									] },
+									]},
 									{
 										playtext: 'Please wait while we fetch ' + day[trainDay-1]+ '\s train running status'
-									},
+									},*/
 									{
 										playtext: train.getTrainStatus(trainNumber, trainDay)
 									}]
