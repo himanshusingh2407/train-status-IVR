@@ -98,7 +98,7 @@ module.exports = {
 									{
 										playtext: 'Please select the date of journey followed by #'
 									}, {
-										playtext: '0 for yesterday, 1 for today. 2 for tomorrow'
+										playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
 									}]
 								}]
 							};
@@ -118,7 +118,7 @@ module.exports = {
 								{
 									playtext: 'Please select the date of journey followed by #'
 								}, {
-									playtext: '0 for yesterday, 1 for today, 2 for tomorrow'
+									playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
 								}]
 							}]
 						};
