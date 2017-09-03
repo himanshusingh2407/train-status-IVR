@@ -64,7 +64,7 @@ module.exports = {
 								res = {
 									response :
 									[{
-										_attr: { sid: cid + "$" + data }
+										_attr: { sid: cid + "$" + trainNumber }
 									},
 									{
 										playtext: "Sorry, wrong input."
@@ -77,7 +77,7 @@ module.exports = {
 											playtext: 'Please select the date of journey followed by #'
 										},
 										{
-											playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
+											playtext: '1 for yesterday, 2 for today, 3 for tomorrow'
 										}]
 									}]
 								};
@@ -86,7 +86,7 @@ module.exports = {
 							res = {
 								response :
 								[{
-									_attr: { sid: cid + "$" + data }
+									_attr: { sid: cid + "$" + trainNumber }
 								},
 								{
 									playtext: "Sorry, no input entered."
@@ -98,7 +98,7 @@ module.exports = {
 									{
 										playtext: 'Please select the date of journey followed by #'
 									}, {
-										playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
+										playtext: '1 for yesterday, 2 for today, 3 for tomorrow'
 									}]
 								}]
 							};
@@ -118,7 +118,7 @@ module.exports = {
 								{
 									playtext: 'Please select the date of journey followed by #'
 								}, {
-									playtext: '1 for yesterday, 2 for today. 3 for tomorrow'
+									playtext: '1 for yesterday, 2 for today, 3 for tomorrow'
 								}]
 							}]
 						};
