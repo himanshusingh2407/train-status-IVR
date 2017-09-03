@@ -30,9 +30,9 @@ module.exports = {
 				};
 			}
 			else if(event == 'GotDTMF'){
-				if(data){
+				var trainNumber = req.query.sid.split('$')[1];
+				if(trainNumber || data) {
 					console.log('SID:: ', req.query.sid);
-					var trainNumber = req.query.sid.split('$')[1];
 					if (trainNumber) {
 						var trainDay = parseInt(data);
 						//var trainStatus = train.getTrainStatus(trainNumber, trainDay);
