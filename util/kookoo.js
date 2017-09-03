@@ -33,8 +33,17 @@ module.exports = {
                 _attr: { sid: cid + "$" + data }
               },
 								{
-									playtext: 'You have entered ' + data
+									playtext: 'You have entered'
 								},
+								{
+									'say-as': [ {
+										_attr:
+										{
+											format: '501',
+											lang: 'EN'
+										}
+									}, data
+								] },
 								{
 									playtext: 'Please wait while we fetch the train running status'
 								},
