@@ -25,8 +25,8 @@ module.exports = {
 				else if(event == 'GotDTMF'){
 					if(data){
             console.log('SID:: ', req.query.sid);
-            var trainNumer = req.query.sid.split('$')[1];
-            if (trainNumer) {
+            var trainNumber = req.query.sid.split('$')[1];
+            if (trainNumber) {
               var trainDay = parseInt(data);
 							var trainStatus = train.getTrainStatus(trainNumber, trainDay);
 							return (xml({response: [ {
@@ -43,8 +43,8 @@ module.exports = {
 								}
 							]}));
             } else if (data.length == 5){
-							var trainNumber = parseInt(data);
-							var trainStatus = train.getTrainStatus(trainNumber, 0);
+							// var trainNumber = parseInt(data);
+							// var trainStatus = train.getTrainStatus(trainNumber, 0);
 							return (xml({response: [ {
                 _attr: { sid: cid + "$" + data }
               },
