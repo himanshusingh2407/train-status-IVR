@@ -1,76 +1,12 @@
 var xml = require('xml');
 var train = require('./train.js');
 
-/* function welcomeResponse(req) {
-return (xml({response: [
-{
-collectdtmf: [ {
-_attr: { l: "1", t: "#"}
-},
-{
-playtext: 'Welcome to Shaktiman. Press 1 followed by hash to know train running status, press 9 followed by # to exit.'
-}
-]}]}));
-}
-function mainMenuResponse(req) {
-var req_json = req.query;
-var event =
-var data = req_json['data'];
-if(data){
-if(data == '1'){
-return listMenuResponse(req);
-}
-else if(data == '9') {
-return (xml({response: [
-{
-hangup: ''
-}]}));
-}
-}
-}
-
-function listMenuResponse(req) {
-return (xml({response: [
-{
-collectdtmf: [ {
-_attr: { l: "5", t: "#"}
-},
-{
-playtext: 'Enter the 5 digit train number followed by Hash.'
-}
-]}]}));
-}
-
-function subListMenuResponse(req) {
-var req_json = req.query;
-var data = req_json['data'];
-if(data) {
-if(data.length == 5){
-return (xml({response: [
-{
-playtext: 'You have entered ' + data
-},
-{
-collectdtmf: [ {
-_attr: { l: "1", t: "#"}
-},
-{
-playtext: 'Enter the 5 digit train number followed by Hash.'
-}
-
-]}));
-}
-}
-}
-
-function reenterResponse(req) {
-
-}*/
 module.exports = {
 	//train.getTrainStatus(trainNumber, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
-		var data = req.query.data;
+		var data = req.query.data || '';
+		var cid = req.query.cid;
 		if(event){
 			if (event == 'NewCall') {
 				return (xml({response: [
@@ -88,10 +24,14 @@ module.exports = {
 				}
 				else if(event == 'GotDTMF'){
 					if(data){
-						if (data.length == 5){
-							var trainNumber = parseInt(data);
-							var trainStatus = train.getTrainStatus(trainNumber, 1);
-							return (xml({response: [
+            console.log('SID:: ', req.query.sid);
+            var trainNumber = req.query.sid.split('$')[1];
+            if (trainNumber) {
+              var trainDay = parseInt(data);
+							var trainStatus = train.getTrainStatus(trainNumber, trainDay);
+							return (xml({response: [ {
+                _attr: { sid: cid + "$" + data }
+              },
 								{
 									playtext: 'You have entered'
 								},
@@ -111,6 +51,20 @@ module.exports = {
 									playtext: trainStatus
 								}
 							]}));
+            } else if (data.length == 5){
+							// var trainNumber = parseInt(data);
+							// var trainStatus = train.getTrainStatus(trainNumber, 0);
+							return (xml({response: [ {
+                _attr: { sid: cid + "$" + data }
+              },
+								{
+									collectdtmf: [ {
+										_attr: { t: "#"}
+									},
+									{
+										playtext: 'Please enter 0 for yesterday status 1 for today status and 2 for tomorrow status followed by #.'
+									}
+								]}]}));
 						}
 						else{
 							return (xml({response: [
