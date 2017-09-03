@@ -1,16 +1,22 @@
 var xml = require('xml');
 var train = require('./train.js');
 
+function getXMLResponse(response) {
+	return xml(response);
+}
+
 module.exports = {
 	//train.getTrainStatus(trainNumber, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
 		var data = req.query.data || '';
 		var cid = req.query.cid;
+		var res;
 		if(event){
 			if (event == 'NewCall') {
-				return (xml({response: [
-					{
+				res = {
+					response:
+					[{
 						playtext: 'Welcome to Shaktiman.'
 					},
 					{
@@ -20,86 +26,143 @@ module.exports = {
 						{
 							playtext: 'Please enter the 5 digit train number followed by #'
 						}
-					]}]}));
-				}
-				else if(event == 'GotDTMF'){
-					if(data){
-            console.log('SID:: ', req.query.sid);
-            var trainNumber = req.query.sid.split('$')[1];
-            if (trainNumber) {
-              var trainDay = parseInt(data);
-							var trainStatus = train.getTrainStatus(trainNumber, trainDay);
-							return (xml({response: [ {
-                _attr: { sid: cid + "$" + data }
-              },
-								{
-									playtext: 'You have entered'
-								},
-								{
-									'say-as': [ {
-										_attr:
+					]}]
+				};
+			}
+			else if(event == 'GotDTMF'){
+				if(data){
+					console.log('SID:: ', req.query.sid);
+					var trainNumber = req.query.sid.split('$')[1];
+					if (trainNumber) {
+						var trainDay = parseInt(data);
+						//var trainStatus = train.getTrainStatus(trainNumber, trainDay);
+						if(trainDay) {
+							if(trainDay == 0 || trainDay == 1 || trainDay == 2) {
+								var day = ['Yesterday', 'Today', 'Tomorrow'];
+								res = {
+									response:
+									[{
+										playtext: 'You have entered'
+									},
+									{
+										'say-as': [ {
+											_attr:
+											{
+												format: '501',
+												lang: 'EN'
+											}
+										}, trainNumber
+									] },
+									{
+										playtext: 'Please wait while we fetch ' + day[trainDay]+ '\s train running status'
+									},
+									{
+										playtext: train.getTrainStatus(trainNumber, trainDay)
+									}]
+								};
+							} else {
+								res = {
+									response :
+									[{
+										_attr: { sid: cid + "$" + data }
+									},
+									{
+										playtext: "Sorry, wrong input."
+									},
+									{
+										collectdtmf: [{
+											_attr: { t: "#"}
+										},
 										{
-											format: '501',
-											lang: 'EN'
-										}
-									}, data
-								] },
-								{
-									playtext: 'Please wait while we fetch the train running status'
+											playtext: 'Please select the date of journey followed by #'
+										}, {
+											playtext: '0 for yesterday, 1 for today. 2 for tomorrow'
+										}]
+									}]
+								};
+							}
+						} else {
+							res = {
+								response :
+								[{
+									_attr: { sid: cid + "$" + data }
 								},
 								{
-									playtext: trainStatus
-								}
-							]}));
-            } else if (data.length == 5){
-							// var trainNumber = parseInt(data);
-							// var trainStatus = train.getTrainStatus(trainNumber, 0);
-							return (xml({response: [ {
-                _attr: { sid: cid + "$" + data }
-              },
-								{
-									collectdtmf: [ {
-										_attr: { t: "#"}
-									},
-									{
-										playtext: 'Please enter 0 for yesterday status 1 for today status and 2 for tomorrow status followed by #.'
-									}
-								]}]}));
-						}
-						else{
-							return (xml({response: [
-								{
-									collectdtmf: [ {
-										_attr: { t: "#"}
-									},
-									{
-										playtext: 'Please enter the correct 5 digit train number followed by #.'
-									}
-								]}]}));
-							}
-						}
-						else {
-							return (xml({response: [
-								{
-									playtext: 'You have not entered anything'
+									playtext: "Sorry, no input entered."
 								},
 								{
-									collectdtmf: [ {
+									collectdtmf: [{
 										_attr: { t: "#"}
 									},
 									{
-										playtext: 'Please enter the 5 digit train number followed by #.'
-									}
-								]}]}));
-							}
+										playtext: 'Please select the date of journey followed by #'
+									}, {
+										playtext: '0 for yesterday, 1 for today. 2 for tomorrow'
+									}]
+								}]
+							};
 						}
-					}
-					else {
-						return (xml({response: [
+					} else if (data.length == 5){
+						// var trainNumber = parseInt(data);
+						// var trainStatus = train.getTrainStatus(trainNumber, 0);
+						res = {
+							response:
+							[{
+								_attr: { sid: cid + "$" + data }
+							},
 							{
-								hangup: ''
-							}
-						]}));
+								collectdtmf: [{
+									_attr: { t: "#"}
+								},
+								{
+									playtext: 'Please select the date of journey followed by #'
+								}, {
+									playtext: '0 for yesterday, 1 for today, 2 for tomorrow'
+								}]
+							}]
+						};
+					}
+					else{
+						res = {
+							response:
+							[{
+								collectdtmf: [{
+									_attr: { t: "#"}
+								},
+								{
+									playtext: 'Please enter the correct 5 digit train number followed by #.'
+								}]
+							}]
+						};
 					}
 				}
-			};
+				else {
+					res = {
+						response:
+						[{
+							playtext: 'You have not entered anything'
+						},
+						{
+							collectdtmf: [{
+								_attr: { t: "#"}
+							},
+							{
+								playtext: 'Please enter the 5 digit train number followed by #.'
+							}]
+						}]
+					};
+				}
+			}
+		}
+		else {
+			res = {
+				response:
+				[{
+					hangup: ''
+				}
+			]
+		};
+	}
+	return getXMLResponse(res);
+}
+};
