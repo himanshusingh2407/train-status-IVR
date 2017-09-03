@@ -6,7 +6,7 @@ function getXMLResponse(response) {
 }
 
 module.exports = {
-	//train.getTrainStatus(trainNumber, 1)
+	//train.getTrainStatus(trainId, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
 		var data = req.query.data || '';
@@ -30,29 +30,29 @@ module.exports = {
 				};
 			}
 			else if(event == 'GotDTMF'){
-				var trainNumber = req.query.sid.split('$')[1];
-				if(trainNumber || data) {
+				var trainId = req.query.sid.split('$')[1];
+				if(trainId || data) {
 					console.log('SID:: ', req.query.sid);
-					if (trainNumber) {
+					if (trainId) {
 						var trainDay = parseInt(data);
-						//var trainStatus = train.getTrainStatus(trainNumber, trainDay);
+						//var trainStatus = train.getTrainStatus(trainId, trainDay);
 						if(trainDay || trainDay == 0) {
 							if(trainDay == 1 || trainDay == 2 || trainDay == 3) {
 								var day = ['Yesterday', 'Today', 'Tomorrow'];
 								res = {
 									response:
 									[{
-										playtext: train.getTrainStatus(trainNumber, trainDay)
+										playtext: train.getTrainStatus(trainId, trainDay)
 									}]
 								};
 							} else {
 								res = {
 									response :
 									[{
-										_attr: { sid: cid + "$" + trainNumber }
+										_attr: { sid: cid + "$" + trainId }
 									},
 									{
-										playtext: "Sorry, wrong input."
+										playtext: "Sorry, wrong input received."
 									},
 									{
 										collectdtmf: [{
@@ -71,10 +71,10 @@ module.exports = {
 							res = {
 								response :
 								[{
-									_attr: { sid: cid + "$" + trainNumber }
+									_attr: { sid: cid + "$" + trainId }
 								},
 								{
-									playtext: "Sorry, no input entered."
+									playtext: "Sorry, no input received."
 								},
 								{
 									collectdtmf: [{
@@ -89,24 +89,38 @@ module.exports = {
 							};
 						}
 					} else if (data.length == 5){
-						// var trainNumber = parseInt(data);
-						// var trainStatus = train.getTrainStatus(trainNumber, 0);
-						res = {
-							response:
-							[{
-								_attr: { sid: cid + "$" + data }
-							},
-							{
-								collectdtmf: [{
-									_attr: { t: "#"}
+						// var trainId = parseInt(data);
+						var trainId = train.getTrainID(data);
+						if(trainId) {
+							res = {
+								response:
+								[{
+									_attr: { sid: cid + "$" + trainId }
 								},
 								{
-									playtext: 'Please select the date of journey followed by #'
-								}, {
-									playtext: '1 for yesterday, 2 for today, 3 for tomorrow'
+									collectdtmf: [{
+										_attr: { t: "#"}
+									},
+									{
+										playtext: 'Please select the date of journey followed by #'
+									}, {
+										playtext: '1 for yesterday, 2 for today, 3 for tomorrow'
+									}]
 								}]
-							}]
-						};
+							};
+						} else {
+							res = {
+								response:
+								[{
+									collectdtmf: [{
+										_attr: { t: "#"}
+									},
+									{
+										playtext: 'Sorry, no train found by this train number, Please enter the correct 5 digit train number followed by #.'
+									}]
+								}]
+							};
+						}
 					}
 					else{
 						res = {

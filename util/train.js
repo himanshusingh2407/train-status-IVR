@@ -1,18 +1,17 @@
 var date = require('./date.js');
 var api = require('./api.js');
 
-function getTrainID(trainNumber) {
-  var response = api.callApi("/searchTrains?trainno=" + trainNumber);
-  if(response.length != 0)
-  return response[0].id;
-  else
-  return null;
-}
-
 module.exports = {
-  getTrainStatus: function(trainNumber, day) {
+  getTrainID: function(trainNumber) {
+    var response = api.callApi("/searchTrains?trainno=" + trainNumber);
+    if(response.length != 0)
+    return response[0].id;
+    else
+    return null;
+  },
+  getTrainStatus: function(trainID, day) {
     var msg;
-    var trainID = getTrainID(trainNumber);
+    // var trainID = getTrainID(trainNumber);
     if(trainID) {
       //console.log(date.getDate(0));
       var response = api.callApi("/getRunningStatus/trainno/" + trainID + "/date/" + date.getDate(day));
