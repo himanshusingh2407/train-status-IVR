@@ -5,7 +5,7 @@ module.exports = {
 	//train.getTrainStatus(trainNumber, 1)
 	getXMLBody : function createResponse(req) {
 		var event = req.query.event;
-		var data = req.query.data;
+		var data = req.query.data || '';
 		var cid = req.query.cid;
 		if(event){
 			if (event == 'NewCall') {
@@ -24,6 +24,7 @@ module.exports = {
 				}
 				else if(event == 'GotDTMF'){
 					if(data){
+            console.log('SID:: ', req.query.sid);
             var trainNumer = req.query.sid.split('$')[1];
             if (trainNumer) {
               var trainDay = parseInt(data);
@@ -44,7 +45,9 @@ module.exports = {
             } else if (data.length == 5){
 							var trainNumber = parseInt(data);
 							var trainStatus = train.getTrainStatus(trainNumber, 0);
-							return (xml({response: [
+							return (xml({response: [ {
+                _attr: { sid: cid + "$" + data }
+              },
 								{
 									collectdtmf: [ {
 										_attr: { t: "#"}
