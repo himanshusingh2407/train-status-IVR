@@ -18,9 +18,9 @@
 			4.1.7. go to top / .gototop
 			4.1.8. loader / .fh5co-loader
 		4.2. destination page
-			4.2.1. package / .package	
-			4.2.2. trip day / .trip-day	
-			4.2.3. trip price / .trip-price	
+			4.2.1. package / .package
+			4.2.2. trip day / .trip-day
+			4.2.3. trip price / .trip-price
 		4.3. discount page
 			4.3.1. discount image / .disc-img
 			4.3.2. discount tag / .disc-tag
@@ -28,10 +28,10 @@
 			4.4.1. staff / .fh5co-staff
 		4.5. blog page
 			4.5.1. pagination / .pagination
-		4.6. form contact / .fh5co-contact-info 
+		4.6. form contact / .fh5co-contact-info
 	5. footer / #fh5co-footer
 		5.1. social media icon / .fh5co-social-icons
-	6. other		
+	6. other
 -------------------------------------------------------------------*/
 
 @font-face {
@@ -43,7 +43,7 @@
 }
 
 /* =======================================================
-* 	travela Style 
+* 	travela Style
 * ======================================================= */
 body {
   font-family: "Work Sans", Arial, sans-serif;
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /* =======================================================
-* 	Navbar 
+* 	Navbar
 * ======================================================= */
 .fh5co-nav {
   position: absolute;
@@ -428,7 +428,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	Header 
+* 	Header
 * ======================================================= */
 #fh5co-header,
 .fh5co-bg {
@@ -519,7 +519,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	Homepage 
+* 	Homepage
 * ======================================================= */
 #fh5co-services,
 #fh5co-started,
@@ -774,9 +774,9 @@ h1, h2, h3, h4, h5, h6, figure {
 .dest-place
 {
 	height:350px;
-	margin-bottom:15px;	
+	margin-bottom:15px;
 	background-position:center;
-	background-size:cover;	
+	background-size:cover;
 }
 
 /*---------get in touch--------*/
@@ -895,10 +895,10 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	Destination page 
+* 	Destination page
 * ======================================================= */
 .package{
-	margin-bottom:25px;	
+	margin-bottom:25px;
 	padding-left:2px;
 	padding-right:4px;
 }
@@ -926,7 +926,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	Discount page 
+* 	Discount page
 * ======================================================= */
 .disc-img{
 	height:270px;
@@ -941,7 +941,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	About page 
+* 	About page
 * ======================================================= */
 .fh5co-staff {
   text-align: center;
@@ -979,11 +979,12 @@ h1, h2, h3, h4, h5, h6, figure {
 	background-size:cover;
 	margin:auto;
 	margin-bottom:20px;
+  filter: grayscale(100%);
 }
 
 
 /* =======================================================
-* 	Blog page 
+* 	Blog page
 * ======================================================= */
 .pagination a {
   background: none;
@@ -1067,7 +1068,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 /* =======================================================
-* 	Form contact 
+* 	Form contact
 * ======================================================= */
 .fh5co-contact-info ul {
   padding: 0;
@@ -1129,7 +1130,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 /* =======================================================
-* 	Footer 
+* 	Footer
 * ======================================================= */
 #fh5co-footer .fh5co-footer-links {
   padding: 0;
@@ -1196,7 +1197,7 @@ footer{
 
 
 /* =======================================================
-* 	Other 
+* 	Other
 * ======================================================= */
 .js .animate-box {
   opacity: 0;
