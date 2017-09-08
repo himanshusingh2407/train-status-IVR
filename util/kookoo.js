@@ -16,14 +16,14 @@ module.exports = {
 				res = {
 					response:
 					[{
-						playtext: 'Welcome to Rail Jaankaaree.'
+						playtext: 'Welcome to Rail Jaankaaaree.'
 					},
 					{
 						collectdtmf: [ {
 							_attr: { t: "#"}
 						},
 						{
-							playtext: 'Please enter the 5 digit train number followed by #'
+							playtext: 'Please enter 5 digit train number followed by #'
 						}
 					]}]
 				};
@@ -144,7 +144,7 @@ module.exports = {
 								_attr: { t: "#"}
 							},
 							{
-								playtext: 'Please enter the 5 digit train number followed by #.'
+								playtext: 'Please enter 5 digit train number followed by #.'
 							}]
 						}]
 					};
