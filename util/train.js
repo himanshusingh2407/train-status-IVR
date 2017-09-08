@@ -36,11 +36,11 @@ module.exports = {
         delay = 24*60 - Math.abs(delay);
       }
       if(delay <= 0){
-        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station and is right on time.';
+        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station, and is right on time.';
       } else if(delay < 60) {
-        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station and is late by ' + delay + ' minutes';
+        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station, and is late by ' + delay + ' minutes';
       } else {
-        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station and is late by ' + parseInt(delay/60) + ' hours and ' + delay%60 + ' minutes';
+        msg = 'Train ' +  trainName + '        is currently at ' + stationDisplayed + ' station, and is late by ' + parseInt(delay/60) + ' hours and ' + delay%60 + ' minutes';
       }
       if(alertMessage)
         msg = alertMessage;
