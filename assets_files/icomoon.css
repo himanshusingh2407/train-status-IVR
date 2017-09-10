@@ -1514,3 +1514,9 @@
   background-position: 0 0;
   background-size: cover;
 }
+#js-gotop {
+  background: url(../assets_files/flat-icons/up-arrow.png) rgba(0, 0, 0, 0.5) no-repeat;
+  background-position: 0 0;
+  background-size: 50%;
+  background-position: center;
+}
