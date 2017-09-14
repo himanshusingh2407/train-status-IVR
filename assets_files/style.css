@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-nav #fh5co-logo {
   font-size: 24px;
-  margin: 0 0 2em 0;
+  margin: 2em 0 2em 0;
   padding: 0;
   text-transform: uppercase;
   font-weight: bold;
@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 16px;
   padding: 30px 10px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -1330,4 +1330,16 @@ footer {
 
 .clear {
   clear: both;
+}
+
+.menu-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  opacity: .75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5f686c;
 }
