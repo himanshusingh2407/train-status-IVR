@@ -263,7 +263,6 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-top: 0px;
   left: 50%;
   margin-left: -4px;
-  background: #f35f55;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -517,7 +516,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 900px;
+  height: 100vh;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -561,11 +560,19 @@ h1, h2, h3, h4, h5, h6, figure {
 * 	Homepage
 * ======================================================= */
 
-#fh5co-services, #fh5co-started, #fh5co-testimonial, #fh5co-blog, #fh5co-project, #fh5co-about, #fh5co-team, #fh5co-contact, #fh5co-footer {
-  padding: 7em 0;
+#fh5co-services, #fh5co-started, #fh5co-testimonial, #fh5co-blog, #fh5co-project, #fh5co-about, #fh5co-team, #fh5co-contact{
+  padding: 4em 0;
   clear: both;
 }
 
+#fh5co-footer {
+  padding: 25px;
+  clear: both;
+}
+
+#fh5co-footer p{
+  margin: 0;
+}
 
 /*---------heading---------*/
 

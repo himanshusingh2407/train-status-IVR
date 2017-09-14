@@ -1,12 +1,14 @@
 # RAIL JAANKAARI
 
 Visit https://himanshusingh2407.github.io/train-status-IVR/ to know more about it.
-### Demo Video : https://www.youtube.com/watch?v=qwSjqyMDR7E
 ### Call on : <b>080-39411020</b>
 ### PIN : <b>75044</b>
 
+### Demo Video :
+[![Watch the Demo video](https://github.com/himanshusingh2407/train-status-IVR/blob/master/assets_files/img/Youtube.png)](https://www.youtube.com/watch?v=qwSjqyMDR7E)
+
 It is a Train IVR application which invloves human interaction with their mobile devices though DTMF tones via keypad to get the live status of a running train.
-Sounds cool, right? Wanna try it yourself? Please follow the below to get the live status of a running train using RAIL JAANKAARI.
+Sounds cool, right? Wanna try it yourself? Please follow the below steps to get the live status of a running train using RAIL JAANKAARI.
 
 1. Firstly, call any of these numbers: <b> 040-39411020, 080-39411020, 022-39411020, 033-39411020, 044-39411020, 011-39411020, 020-39411020 </b> from your mobile device.
 2. Once prompted to enter the application code, please use the keypad to enter <b>75044 </b>.
