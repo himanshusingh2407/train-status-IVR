@@ -1,10 +1,10 @@
 # RAIL JAANKAARI
 
 Visit https://himanshusingh2407.github.io/train-status-IVR/ to know more about it.
-### Demo Video : https://www.youtube.com/watch?v=qwSjqyMDR7E
 ### Call on : <b>080-39411020</b>
 ### PIN : <b>75044</b>
 
+### Demo Video :
 [![Watch the Demo video](https://github.com/himanshusingh2407/train-status-IVR/blob/master/assets_files/img/Youtube.png)](https://www.youtube.com/watch?v=qwSjqyMDR7E)
 
 It is a Train IVR application which invloves human interaction with their mobile devices though DTMF tones via keypad to get the live status of a running train.
