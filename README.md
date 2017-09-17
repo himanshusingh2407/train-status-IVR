@@ -23,3 +23,4 @@ Sounds cool, right? Wanna try it yourself? Please follow the below steps to get 
 #### Backend : Node JS, Express
 #### IVR System: Kookoo
 #### Deployment: Heroku (https://train-ivr.herokuapp.com/)
+#### Analytics: Google Analytics
