@@ -24,3 +24,7 @@ Sounds cool, right? Wanna try it yourself? Please follow the below steps to get 
 #### IVR System: Kookoo
 #### Deployment: Heroku (https://train-ivr.herokuapp.com/)
 #### Analytics: Google Analytics
+
+### Developed By:
+#### [Himanshu Singh](https://github.com/himanshusingh2407)
+#### [Suvam Pramanik](https://github.com/suvampramanik)
